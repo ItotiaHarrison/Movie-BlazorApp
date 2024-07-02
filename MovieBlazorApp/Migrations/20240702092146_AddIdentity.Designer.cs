@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieBlazorApp.Data;
 
@@ -11,9 +12,11 @@ using MovieBlazorApp.Data;
 namespace MovieBlazorApp.Migrations
 {
     [DbContext(typeof(MovieBlazorAppContext))]
-    partial class MovieBlazorAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240702092146_AddIdentity")]
+    partial class AddIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
