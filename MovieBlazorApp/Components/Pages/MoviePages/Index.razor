@@ -5,15 +5,15 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Index</h1>
+<h1>Movies</h1>
 
 <p>
-    <a href="movies/create">Create New</a>
+    <a href="movies/create">Add a Movie</a>
 </p>
 
 <QuickGrid Class="table" Items="DB.Movie">
     <PropertyColumn Property="movie => movie.Title" />
-    <PropertyColumn Property="movie => movie.ReleaseDate" />
+    <PropertyColumn Property="movie => movie.ReleaseDate" Title="Release Date"/>
     <PropertyColumn Property="movie => movie.Genre" />
     <PropertyColumn Property="movie => movie.Price" />
 
