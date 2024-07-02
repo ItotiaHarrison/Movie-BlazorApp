@@ -2,6 +2,7 @@
 @using Microsoft.AspNetCore.Components.QuickGrid
 @inject MovieBlazorApp.Data.MovieBlazorAppContext DB
 @using MovieBlazorApp
+@rendermode InteractiveServer
 
 <PageTitle>Index</PageTitle>
 
@@ -11,8 +12,8 @@
     <a href="movies/create">Add a Movie</a>
 </p>
 
-<QuickGrid Class="table" Items="DB.Movie">
-    <PropertyColumn Property="movie => movie.Title" />
+<QuickGrid Class="table" Items="DB.Movie" Pagination="paginationState">
+    <PropertyColumn Property="movie => movie.Title" Sortable="true"/>
     <PropertyColumn Property="movie => movie.ReleaseDate" Title="Release Date"/>
     <PropertyColumn Property="movie => movie.Genre" />
     <PropertyColumn Property="movie => movie.Price" />
@@ -23,3 +24,9 @@
         <a href="@($"movies/delete?id={movie.Id}")">Delete</a>
     </TemplateColumn>
 </QuickGrid>
+
+<Paginator State="paginationState" />
+
+@code {
+    PaginationState paginationState = new() { ItemsPerPage = 10};
+}
